@@ -33,6 +33,11 @@ export default function NotebookComponent({
         },
         border: 1,
         borderColor: "#DFE5F1",
+        width: {
+          xs: "100%",
+          sm: "100%",
+          md: "350px",
+        },
       }}
     >
       <CardContent

@@ -59,6 +59,14 @@ export default function NotebooksListComponent() {
         alignItems={"center"}
         justifyContent={"space-between"}
         gap={4}
+        sx={{
+          flexDirection: {
+            xs: "column",
+            sm: "column",
+            md: "row",
+            lg: "row",
+          },
+        }}
       >
         {listNotebooks?.map(({ id, questions, status, title }) => (
           <NotebookComponent

@@ -3,6 +3,7 @@
 import { Container } from "@mui/material";
 import { Chivo } from "next/font/google";
 import { CssBaseline, createTheme, ThemeProvider } from "@mui/material";
+import "./globals.css";
 
 // Load the Chivo font
 const chivo = Chivo({
@@ -28,6 +29,7 @@ export default function RootLayout({
           <CssBaseline />
           <Container
             maxWidth={false}
+            component={"div"}
             sx={{
               display: "flex",
               flexDirection: "column",

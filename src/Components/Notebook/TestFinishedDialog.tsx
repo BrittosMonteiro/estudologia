@@ -3,7 +3,7 @@ import { Button, Dialog, DialogContent, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter as useNavigate } from "next/navigation";
 
-export default function SimpleDialog() {
+export default function TestFinishedDialog() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 

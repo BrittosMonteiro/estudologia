@@ -15,7 +15,7 @@ import {
   Typography,
 } from "@mui/material";
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
-import ConfirmationDialog from "@/Components/Notebook/DialogConfirmation";
+import TestFinishedDialog from "@/Components/Notebook/TestFinishedDialog";
 
 interface INotebookPage {
   params: { id_notebook: string };
@@ -138,7 +138,7 @@ export default function Page({ params }: INotebookPage) {
         </Box>
 
         {currentQuestion + 1 === selectedNotebook?.questions.length ? (
-          <ConfirmationDialog />
+          <TestFinishedDialog />
         ) : (
           <Button
             onClick={confirmAnswer}

@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 import { AppBar, Box, Toolbar } from "@mui/material";
+import Link from "next/link";
 
 export default function HeaderNotebook() {
   return (
@@ -22,13 +23,15 @@ export default function HeaderNotebook() {
               gap: "30px",
             }}
           >
-            <Image
-              alt="Logo - Estudologia"
-              title="Logo - Estudologia"
-              src={"/assets/Logotipo.png"}
-              width={107}
-              height={18}
-            />
+            <Link href={"/"}>
+              <Image
+                alt="Logo - Estudologia"
+                title="Logo - Estudologia"
+                src={"/assets/Logotipo.png"}
+                width={107}
+                height={18}
+              />
+            </Link>
           </Box>
         </Toolbar>
       </AppBar>
