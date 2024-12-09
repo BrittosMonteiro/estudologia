@@ -51,6 +51,7 @@ export default function Home() {
               sx={{
                 color: value === index ? "#502DB3" : "#E3DFEF",
                 "&.Mui-selected": { color: "#502DB3" },
+                fontSize: "20px",
               }}
             />
           ))}

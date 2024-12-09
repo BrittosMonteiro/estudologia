@@ -64,9 +64,10 @@ export default function NotebookComponent({
         />
 
         <Typography fontWeight={400} color="#7D8DA6" fontSize={12}>
-          {qtyQuestions}
+          {`${qtyQuestions} respostas`}
         </Typography>
       </CardContent>
+
       <CardActions>
         <Button
           sx={{
