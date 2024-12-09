@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import { Button, Dialog, DialogContent, Typography } from "@mui/material";
+import { Box, Button, Dialog, DialogContent, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter as useNavigate } from "next/navigation";
+import { useTimer } from "@/context/timer.context";
+import { Clock } from "@phosphor-icons/react";
 
 export default function TestFinishedDialog() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const { pauseTimer, resetTimer, formattedTime } = useTimer();
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    pauseTimer();
+    setOpen(true);
+  };
   const handleClose = () => {
     setOpen(false);
+    resetTimer();
     navigate.push("/");
   };
 
@@ -68,9 +75,17 @@ export default function TestFinishedDialog() {
           <Typography color="#7D8DA6" fontSize={"20px"} fontWeight={400}>
             Respostas enviadas com sucesso
           </Typography>
-          <Typography color="#7D8DA6" fontSize={"14px"} fontWeight={400}>
-            40 min de provs
-          </Typography>
+          <Box
+            display={"flex"}
+            flexDirection={"row"}
+            gap={"8px"}
+            alignItems={"center"}
+          >
+            <Clock size={24} color="#7D8DA6" />
+            <Typography color="#7D8DA6" fontSize={"14px"} fontWeight={400}>
+              Tempo total: {formattedTime}
+            </Typography>
+          </Box>
           <Button
             onClick={handleClose}
             variant="outlined"

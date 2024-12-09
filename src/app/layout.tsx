@@ -5,7 +5,6 @@ import { Chivo } from "next/font/google";
 import { CssBaseline, createTheme, ThemeProvider } from "@mui/material";
 import "./globals.css";
 
-// Load the Chivo font
 const chivo = Chivo({
   subsets: ["latin"],
   variable: "--font-chivo",

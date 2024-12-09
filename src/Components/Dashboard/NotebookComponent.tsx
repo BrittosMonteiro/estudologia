@@ -90,7 +90,7 @@ export default function NotebookComponent({
           }}
           fullWidth
           variant="contained"
-          onClick={() => router.push(`/notebook/${id}`)} // Navigate to the new route
+          onClick={() => router.push(`/notebook/${id}`)}
           disabled={status}
         >
           Responder

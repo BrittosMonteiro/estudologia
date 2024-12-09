@@ -1,8 +1,11 @@
+import { useTimer } from "@/context/timer.context";
 import { Box, Typography } from "@mui/material";
 import { Clock } from "@phosphor-icons/react";
 import React from "react";
 
 export default function Timer() {
+  const { formattedTime } = useTimer();
+
   return (
     <Box
       border={1}
@@ -17,7 +20,7 @@ export default function Timer() {
       gap={"8px"}
     >
       <Clock size={24} color="#7D8DA6" />
-      <Typography color="#7D8DA6">0:00:00</Typography>
+      <Typography color="#7D8DA6">{formattedTime}</Typography>
     </Box>
   );
 }

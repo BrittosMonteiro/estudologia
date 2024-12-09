@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 import TestFinishedDialog from "@/Components/Notebook/TestFinishedDialog";
+import { useTimer } from "@/context/timer.context";
 
 interface INotebookPage {
   params: { id_notebook: string };
@@ -25,6 +26,7 @@ export default function Page({ params }: INotebookPage) {
   const [selectedNotebook, setSelectedNotebook] = useState<INotebook>();
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [answer, setAnswer] = useState<string>("");
+  const { startTimer } = useTimer();
 
   const handleAnswer = (text: string) => {
     if (answer?.length > 300) return;
@@ -48,7 +50,8 @@ export default function Page({ params }: INotebookPage) {
     );
 
     setSelectedNotebook(getNotebook!);
-  }, [params.id_notebook]);
+    startTimer();
+  }, [params.id_notebook, startTimer]);
 
   return (
     <>
@@ -96,7 +99,7 @@ export default function Page({ params }: INotebookPage) {
             label="Escreva sua resposta aqui"
             multiline
             rows={4}
-            variant="filled" // Use filled variant
+            variant="filled"
             defaultValue={answer}
             sx={{
               backgroundColor: "#F3F3F3",
@@ -129,7 +132,7 @@ export default function Page({ params }: INotebookPage) {
             }}
             onChange={(e) => handleAnswer(e.target.value)}
             inputProps={{
-              maxLength: 300, // Limit input to 300 characters
+              maxLength: 300,
             }}
           />
           <Typography color="#000" fontWeight={400}>{`${
